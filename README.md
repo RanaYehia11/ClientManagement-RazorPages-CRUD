@@ -1,4 +1,5 @@
-
+#ClientManagement-RazorPages-CRUD
+---
 ## Overview
 MyStore is a simple **ASP.NET Core Razor Pages application** that performs basic **CRUD (Create, Read, Update, Delete)** operations on a SQL Server database.  
 It manages client information such as name, email, phone, and address.
