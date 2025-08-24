@@ -1,0 +1,33 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+    try
+    {
+        var id = Request.Query["id"];
+        string connectionString = "Server=localhost,1433;Initial Catalog=myStore;User Id=sa;Password=Rana@1234;TrustServerCertificate=True;";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            var sql = "DELETE FROM clients WHERE Id=@id";
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id", id.ToString());
+                command.ExecuteNonQuery();
+            }
+        }
+        Response.Redirect("/Clients/Index");
+    }
+    catch (Exception ex)
+    {
+        <div class="alert alert-danger" role="alert">
+            <strong> Error: @ex.Message </strong>
+        </div>
+        
+
+
+
+    }
+}
+
+

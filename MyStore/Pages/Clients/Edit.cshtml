@@ -1,0 +1,78 @@
+﻿@page
+@model MyStore.Pages.Clients.EditModel
+@{
+}
+
+
+
+<br />
+<h2>Edit Client</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>  @Model.errorMessage  </strong>
+    </div>
+
+}
+
+
+<form method="POST">
+    <input type="hidden" name="id" value="@Model.clientInfo.Id" >
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="name" value="@Model.clientInfo.Name" />
+
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="email" value="@Model.clientInfo.Email" />
+
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="phone" value="@Model.clientInfo.Phone" />
+        </div>
+
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="address" value="@Model.clientInfo.Address" />
+
+        </div>
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+
+
+        <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+                <div class="alert alert-success" role="alert">
+                    <strong>  @Model.successMessage  </strong>
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <div class="row mb-3">
+        <div class="=" col-sm-10 offset-sm-2 d-grid">
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="=" col-sm-10 offset-sm-2 d-grid">
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+</form>
